@@ -6,17 +6,17 @@ import {
      createProduct,
      updateProduct,
      deleteProduct, 
-    } from './productsController';
+    } from './productsController.js';
 
 
-import { validateData } from '../../middlewares/validationMiddleware';
+import { validateData } from '../../middlewares/validationMiddleware.js';
 
 
 import { 
     createProductSchema,
     updateProductSchema,
-     } from '../../db/productsSchema';
-import { verifySeller, verifyToken } from '../../middlewares/authMiddleware';
+     } from '../../db/productsSchema.js';
+import { verifySeller, verifyToken } from '../../middlewares/authMiddleware.js';
 
 
 
