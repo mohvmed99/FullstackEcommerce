@@ -2,7 +2,8 @@ import { doublePrecision, integer, pgTable, timestamp, varchar } from 'drizzle-o
 import { usersTable } from './usersSchema.js';
 import { productsTable } from './productsSchema.js';
 import { createInsertSchema } from 'drizzle-zod';
-import z from 'zod/dist/types/index.js';
+import { z } from "zod";
+
 
 
 
@@ -44,4 +45,8 @@ export const insertOrderItemSchema = createInsertSchema(orderItemsTable).omit({
 export const insertOrderWithItemsSchema = z.object({
   order: insertOrderSchema,
   items: z.array(insertOrderItemSchema),
+});
+
+export const updateOrderSchema = createInsertSchema(ordersTable).pick({
+  status: true,
 });
