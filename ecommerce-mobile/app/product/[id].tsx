@@ -1,5 +1,5 @@
 import { useLocalSearchParams, Stack } from 'expo-router';
-import products from '@/assets/products.json';
+
 
 import { Card } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
@@ -8,15 +8,26 @@ import { Text } from '@/components/ui/text';
 import { Heading } from '@/components/ui/heading';
 import { Box } from '@/components/ui/box';
 import { Button, ButtonText } from '@/components/ui/button';
+import { useQuery } from '@tanstack/react-query';
+import { fetchProductById } from '@/api/products'; // Assuming this is the correct import for fetching product by ID
+import { ActivityIndicator } from 'react-native';
 
 export default function ProductDetailsScreen() {
     const { id } = useLocalSearchParams<{ id: string }>();
 
-    const product = products.find((p) => p.id === Number(id));
+    const { data: product, isLoading, error } = useQuery({ queryKey: ['products', id], queryFn: () => fetchProductById(Number(id)),});  
 
-    if (!product) {
-        return <Text>Product not found</Text>;                       //if product not found
+  
+
+
+    if (isLoading) {
+        return <ActivityIndicator />                    //you can use activity indicator also
     }
+
+    if (error) {
+        return <Text>Product not found!</Text>;      //if error in fetching
+    }
+
 
     return (
         <Box className="flex-1 items-center p-3">

@@ -1,5 +1,9 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+#my update
+
+.env
+
 # dependencies
 node_modules/
 
@@ -34,3 +38,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+
+# i'm trying to ignore the ios and android
+ios/
+android/

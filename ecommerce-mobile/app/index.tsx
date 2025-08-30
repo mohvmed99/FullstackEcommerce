@@ -1,8 +1,6 @@
-import { FlatList, useWindowDimensions } from 'react-native';
-//import products from '../assets/products.json';
+import { ActivityIndicator, FlatList, Text } from 'react-native';
 import ProductListItem from '../components/ProductListItem';
 import { useBreakpointValue } from '@/components/ui/utils/use-break-point-value';
-import { useEffect, useState } from 'react';
 import { listProducts } from '@/api/products';
 import { useQuery } from '@tanstack/react-query';
 
@@ -11,18 +9,6 @@ import { useQuery } from '@tanstack/react-query';
 export default function HomeScreen() {
 
   const { data, isLoading, error } =  useQuery({queryKey : ['products'], queryFn: listProducts});
-//    const [products, setProducts] = useState();
-
-
-//     useEffect(() => {
-//         const fetchProduycts = async () => {
-//             const data = await listProducts();
-//             setProducts(data);
-//         };
-
-//         fetchProduycts();
-//     }, []);
-   
 
 
     const numColumns = useBreakpointValue({
@@ -30,6 +16,15 @@ export default function HomeScreen() {
         sm: 3,
         xl: 4,
     });
+
+    if (isLoading) {
+        return < ActivityIndicator/>;
+    }
+
+    if (error) {
+        return <Text>Error Fetching products</Text>;
+    }
+
 
     return (
         <FlatList                               //i have an error that i wasn't able to solve on flat list 
