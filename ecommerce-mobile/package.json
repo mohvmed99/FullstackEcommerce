@@ -11,11 +11,13 @@
   "dependencies": {
     "@expo/html-elements": "^0.4.2",
     "@gluestack-ui/button": "^1.0.14",
-    "@gluestack-ui/icon": "^0.1.26",
+    "@gluestack-ui/core": "^3.0.2",
+    "@gluestack-ui/icon": "^0.1.27",
     "@gluestack-ui/image": "^0.1.17",
-    "@gluestack-ui/nativewind-utils": "^1.0.26",
+    "@gluestack-ui/nativewind-utils": "^1.0.28",
     "@gluestack-ui/overlay": "^0.1.22",
     "@gluestack-ui/toast": "^1.0.9",
+    "@gluestack-ui/utils": "^3.0.3",
     "@tanstack/react-query": "^5.85.3",
     "babel-plugin-module-resolver": "^5.0.2",
     "expo": "~53.0.0",
@@ -23,6 +25,7 @@
     "expo-linking": "~7.1.7",
     "expo-router": "~5.1.4",
     "expo-status-bar": "~2.2.3",
+    "lucide-react-native": "^0.542.0",
     "nativewind": "^4.1.23",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -31,9 +34,10 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
-    "react-native-svg": "15.11.2",
+    "react-native-svg": "^15.12.1",
     "react-native-web": "^0.20.0",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
